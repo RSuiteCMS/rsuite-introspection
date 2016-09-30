@@ -1,0 +1,11 @@
+build
+target
+bin
+.gradle
+*~
+*.bak
+*.log
+.svn
+.settings
+.classpath
+.project

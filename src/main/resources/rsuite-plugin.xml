@@ -1,0 +1,34 @@
+<rsuite-plugin id="@pluginId@" version="@pluginVersion@ at @timeStamp@" description="Reduce RSuite functionality for those with the role, 'Contributor'">
+	<lifecycleListener type="com.reallysi.contributor.ContributorPluginLifecycleListener" />
+	<extensionProvider id="rsuite.WebService">
+		<staticWebService path="/WebContent" root="/@pluginId@"/>
+		<remoteApiDefinition id="@pluginId@:actionMenus" handler="com.reallysi.debug.ActionMenus" />
+	</extensionProvider>
+
+	<extensionProvider id="rsuite.UI">
+		<scriptInclude src="/@pluginId@/actions.js" />
+	</extensionProvider>
+
+	 <extensionProvider id="rsuite.ContextMenu">
+		<contextMenuRuleSet scope="system">
+			<menuItemList>
+				<menuItem id="@pluginId@:actionMenus" actionName="@pluginId@:actionMenuManifest" label="Show action menu items">
+					<property name="rsuite-path" value="Introspection" />
+				</menuItem>
+				<menuItem id="@pluginId@:icons" actionName="@pluginId@:iconManifest" label="Show registered icons">
+					<property name="rsuite-path" value="Introspection" />
+				</menuItem>
+				<menuItem id="@pluginId@:less" actionName="@pluginId@:colors" label="Show named system colors">
+					<property name="rsuite-path" value="Introspection" />
+				</menuItem>
+				<menuItem id="@pluginId@:messages" actionName="@pluginId@:messageTable" label="Show message table">
+					<property name="rsuite-path" value="Introspection" />
+				</menuItem>
+				<menuItem id="@pluginId@:actions" actionName="@pluginId@:actionsManifest" label="Show registered actions">
+					<property name="rsuite-path" value="Introspection" />
+				</menuItem>
+
+			</menuItemList>
+		</contextMenuRuleSet>
+	</extensionProvider>
+</rsuite-plugin>
